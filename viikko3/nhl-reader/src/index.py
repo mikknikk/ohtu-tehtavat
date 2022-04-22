@@ -13,6 +13,8 @@ def main():
             player = Player(player_dict)
             finnishPlayers.append(player)
 
+    finnishPlayers.sort(reverse = True, key = lambda player : player.points())
+
     print("Players from FIN", datetime.datetime.now())
     for player in finnishPlayers:
         print(player)
