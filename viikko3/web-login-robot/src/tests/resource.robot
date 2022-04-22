@@ -36,3 +36,7 @@ Go To Register Page
 
 Go To Home Page
     Go To  ${HOME URL}
+
+Reset Application And Go To Register Page
+    Reset Application
+    Go To Register Page

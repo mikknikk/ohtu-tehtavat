@@ -1,8 +1,9 @@
 *** Settings ***
 Resource  resource.robot
+Resource  login_resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
-Test Setup  Go To Register Page
+Test Setup  Reset Application And Go To Register Page
 
 *** Test Cases ***
 Register With Valid Username And Password
@@ -27,6 +28,20 @@ Register With Nonmatching Password And Password Confirmation
     Set Username  mikko
     Set Password  mikko123
     Set Password Confirmation  mikko124
+    Submit Credentials
+    Register Should Fail With Message  Password and password confirmation do not match
+
+Login After Successful Registeration
+    Set Username  mikko
+    Set Password And Password Confirmation  mikko123
+    Submit Credentials
+    Register Should Succeed
+    Go To Login Page
+    Login Page Should Be Open
+    login_resource.Set Username  mikko
+    login_resource.Set Password  mikko123
+    login_resource.Submit Credentials
+    Login Should Succeed
 
 *** Keywords ***
 Register Should Succeed
