@@ -43,6 +43,18 @@ Login After Successful Registeration
     login_resource.Submit Credentials
     Login Should Succeed
 
+Login After Failed Registration
+    Set Username  mikko
+    Set Password And Password Confirmation  mikko12
+    Submit Credentials
+    Register Should Fail With Message  Invalid password
+    Go To Login Page
+    Login Page Should Be Open
+    login_resource.Set Username  mikko
+    login_resource.Set Password  mikko12
+    login_resource.Submit Credentials
+    Login Should Fail With Message  Invalid username or password
+
 *** Keywords ***
 Register Should Succeed
     Welcome Page Should Be Open
