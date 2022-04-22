@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # käynnistetään Flask-palvelin taustalle
-poetry run viikko3/web-login-robot/python3 src/index.py &
+poetry run python3 viikko3/web-login-robot/src/index.py &
 
 # odotetaan, että palvelin on valmiina ottamaan vastaan pyyntöjä
 while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:5000/ping)" != "200" ]]; 
