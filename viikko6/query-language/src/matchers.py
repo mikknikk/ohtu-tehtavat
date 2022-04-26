@@ -28,9 +28,6 @@ class Not:
         return not self._matcher.matches(player)
 
 class All:
-    def __init__(self, matcher):
-        self._matcher = matcher
-
     def matches(self, player):
         return True
 
